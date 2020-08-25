@@ -78,7 +78,7 @@ $a = mysqli_fetch_array($admin);
                         <p>
                             Kenaikan Gaji Berkala
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">3</span>
+                            <span class="badge badge-info right">2</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -86,12 +86,6 @@ $a = mysqli_fetch_array($admin);
                             <a href="?module=kgb/index" class="nav-link" id="data-dokter">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Update KGB</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="?module=kgb/percepatan" class="nav-link" id="spesialis">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Percepatan KGB</p>
                             </a>
                         </li>
                         <li class="nav-item">
