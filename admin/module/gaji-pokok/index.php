@@ -12,6 +12,7 @@ $cek_gol = mysqli_num_rows($jum_gol);
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1>Daftar Gaji Pokok PNS</h1>
+                <span class='badge badge-pill badge-warning'><?= $c['nama_pp'] ?></span>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -25,7 +26,7 @@ $cek_gol = mysqli_num_rows($jum_gol);
 
 <!-- Main content -->
 <section class="content">
-    <a href="#" class="btn btn-info btn-xs" data-target="#add-gaji" data-toggle="modal">Tambah</a>
+    <a href="#" class="btn btn-info" data-target="#add-gaji" data-toggle="modal">Ubah PP</a>
     <div class="modal fade" id="add-gaji" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -86,6 +87,68 @@ $cek_gol = mysqli_num_rows($jum_gol);
             </div>
         </div>
     </div>
+    <div class="pp"><a href="#" class="btn btn-custom-blue" data-target="#add-gaji" data-toggle="modal">Tambah</a>
+        <div class="modal fade" id="add-gaji" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Tambah Gaji</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <form method="POST" enctype="multipart/form-data" action="?module=gaji-pokok/function-proses&act=tambah">
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <label style="position:relative; top:7px;">MKG</label>
+                                    </div>
+                                    <div class="col-xl-8">
+                                        <select name="mkg" class="form-control" required>
+                                            <?php
+                                            for ($i = 0; $i <= 33; $i++) {
+                                                echo "<option value='$i'>$i</option>";
+                                            } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div style="height: 10px;"></div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <label style="position:relative; top:7px;">Golongan</label>
+                                    </div>
+                                    <div class="col-xl-8">
+                                        <select required class="form-control" name="golongan">
+                                            <?php
+                                            $sql = mysqli_query($con, "SELECT * FROM golongan ORDER BY id_golongan");
+                                            while ($d = mysqli_fetch_array($sql)) { ?>
+                                                <option value="<?= $d['id_golongan'] ?>"><?php echo $d['nama_golongan']; ?>/<?php echo $d['id_golongan']; ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div style="height: 10px;"></div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <label style="position:relative; top:7px;">Gaji Pokok</label>
+                                    </div>
+                                    <div class="col-xl-8">
+                                        <input type="number" class="form-control" required name="gapok">
+                                    </div>
+                                </div>
+                                <div style="height: 10px;"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                        <button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-check"></span>Submit</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <div style="height: 20px"></div>
     <form method="GET" action="?module=gaji-pokok/index">
         <input type="hidden" name="module" value="gaji-pokok/index"> <input type="hidden" name="act" value="tampil" id="">
@@ -107,10 +170,6 @@ $cek_gol = mysqli_num_rows($jum_gol);
         <div class="col-12">
             <div class="card">
                 <div class="card">
-                    <div class="card-header">
-                        <p>Daftar Gaji Pokok Berdasarkan masa kerja golongan dan <?= $c['nama_pp']; ?> tentang <?= $c['keterangan']; ?></h5>
-                    </div>
-                    <!-- /.card-header -->
                     <div class="card-body">
                         <?php
                         if (empty($_GET)) {
@@ -316,7 +375,7 @@ $cek_gol = mysqli_num_rows($jum_gol);
                                         </tbody>
                                     </table>
                                 <?php } elseif ($golongan == "II") { ?>
-                                    <table  style="text-align: center;" class="table table-bordered table-hover">
+                                    <table style="text-align: center;" class="table table-bordered table-hover">
                                         <thead>
                                             <tr>
                                                 <th rowspan=" 2">Masa Kerja Golongan</th>
@@ -335,7 +394,7 @@ $cek_gol = mysqli_num_rows($jum_gol);
                                         $query = mysqli_query($con, "SELECT DISTINCT mkg FROM gaji_pokok WHERE id_golongan IN ('II.a','II.b','II.c','II.d') ORDER BY mkg");
                                         while ($d = mysqli_fetch_array($query)) {
                                         ?>
-                                            <tbody >
+                                            <tbody>
                                                 <tr>
                                                     <td><?= $d['mkg'] ?></td>
                                                     <?php

@@ -5,22 +5,17 @@ if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $hash = md5($_POST['password']);
     $data = mysqli_query($con, "select * from user where username='$username' and password='$hash'");
-
     $cek = mysqli_num_rows($data);
     if ($cek > 0) {
-        $log = mysqli_fetch_array($data);
-        if ($log['level'] == 'admin') {
-            $_SESSION['username'] = $username;
-            $_SESSION[''] = $hash;
-            $_SESSION['status'] = "login";
-            header("location:admin/index.php");
-        } else {
-            $error = "Login Gagal username atau password salah";
-        }
+        $_SESSION['username'] = $username;
+        $_SESSION[''] = $hash;
+        $_SESSION['status'] = "login";
+        header("location:admin/index.php");
     } else {
-        $error = "Login Gagal username atau password tidak terdaftar";
+        $error = "Login Gagal username atau password salah";
     }
 }
+
 if (isset($_GET['pesan'])) {
     if ($_GET['pesan'] == "gagal") {
         echo "<script>alert('Login gagal username/password salah')</script>";

@@ -18,10 +18,5 @@
     <link rel="stylesheet" href="../assets/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Lato', sans-serif;
-            font-size: 13px;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/custom.css">
 </head>

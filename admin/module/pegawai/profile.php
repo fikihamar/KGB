@@ -99,7 +99,7 @@ INNER JOIN instansi ON pegawai.kd_instansi=instansi.id_instansi WHERE pegawai.ni
                         </tr>
                         <tr>
                             <td style="width: 45%"><b>Tanggal Promosi Pangkat Terakhir</b></td>
-                            <td><?= $tanggal = $a['tgl_pangkat_terakhir']; ?></td>
+                            <td><?= $tanggal = date('d-m-Y', strtotime($a['tgl_pangkat_terakhir'])) ?></td>
                             <td style="width: 15%"> <a class="btn btn-outline-success btn-xs" href="#editpangkat<?php echo $a['nip']; ?>" data-toggle="modal"><i class="fa fa-edit"></i> Edit Kepangkatan</a></td>
                         </tr>
                         <tr>
@@ -186,8 +186,8 @@ INNER JOIN instansi ON pegawai.kd_instansi=instansi.id_instansi WHERE pegawai.ni
                             <td style="width: 15%"> <a class="btn btn-info btn-xs" href="#editkgb<?php echo $a['nip']; ?>" data-toggle="modal"><i class="fa fa-edit"></i> Edit KGB terakhir</a></td>
                         </tr>
                         <tr>
-                            <td style="width: 45%"><b>Tanggal Surat KGB</b></td>
-                            <td><?= kosong($a['tgl_surat_terakhir']) ?></td>
+                            <td style="width: 45%"><b>Tanggal SK KGB Terakhir</b></td>
+                            <td><?= kosong(date('d-m-Y', strtotime($a['tgl_surat_terakhir']))) ?></td>
                         </tr>
                         <tr>
                             <td style="width: 45%"><b>Gaji Pokok</b></td>

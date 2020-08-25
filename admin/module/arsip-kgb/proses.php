@@ -323,7 +323,7 @@ if ($_GET['act'] == 'upload') {
                     INNER JOIN instansi ON pegawai.kd_instansi=instansi.id_instansi WHERE pegawai.nip='$nip'");
                     $d = mysqli_fetch_array($data);
                     $tgl_surat = date('Y-m-d');
-                    $tahun = $d['mkg_tahun_kgb'] + $d['periode_kgb'] - $d['percepatan_kgb'] - $d['penudaan_kgb'];
+                    $tahun = $d['mkg_tahun_kgb'] + $d['periode_kgb'] - $d['percepatan_kgb'] - $d['penundaan_kgb'];
                     $bulan = bulan($d['mkg_bulan_kgb']);
                     $id_gol = $d['id_golongan'];
                     $gaji = mysqli_query($con, "SELECT * FROM gaji_pokok INNER JOIN peraturan ON gaji_pokok.id_peraturan=peraturan.id_peraturan WHERE gaji_pokok.mkg='$tahun' AND gaji_pokok.id_golongan='$id_gol'");

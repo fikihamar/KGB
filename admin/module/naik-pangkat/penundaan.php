@@ -146,16 +146,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="alert alert-info alert-dismissable">
-                        <p>Percepatan hanya berlaku satu kali penggunaaan,
-                            Apabila pegawai sudah di promosikan jabatannya sesuai dengan percepatan kenaikan pangkat maka secara otomatis nilai percepatan akan berubah menjadi 0 kembali</p>
-                    </div>
-                    <div class="alert alert-warning alert-dismissable">
-                        <p>Pegawai yang sedang dalam masa percepatan promosi pangkat maka tidak dapat di lakukan penundaan promosi pangkat
-                            . Jika anda ingin menunda promosi pangkat pegawai </p>
-                        <p> silahkan hapus percepatan promosi pangkat terlebih dahulu <a href="?module=naik-pangkat/percepatan">Disini</a>
-                            </>
-                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Oke</button>

@@ -54,7 +54,7 @@ $a = mysqli_fetch_array($admin);
                         <p>
                             Promosi Pangkat
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">3</span>
+                            <span class="badge badge-info right">2</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -62,12 +62,6 @@ $a = mysqli_fetch_array($admin);
                             <a href="?module=naik-pangkat/index" class="nav-link" id="data-dokter">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Update Kepangkatan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="?module=naik-pangkat/percepatan" class="nav-link" id="spesialis">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Percepatan Promosi</p>
                             </a>
                         </li>
                         <li class="nav-item">

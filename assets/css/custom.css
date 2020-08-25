@@ -1,0 +1,22 @@
+* {
+    font-family: 'Poppins';
+    font-size: small;
+}
+
+.btn-custom-blue {
+    background-color: #4DADF7;
+    color: #fff;
+    padding: 6px 12px 6px 12px;
+    border-radius: 4px;
+}
+
+.btn-custom-blue:hover {
+    background-color: #489AD9;
+    color: #fff;
+    padding: 6px 12px 6px 12px;
+    border-radius: 4px;
+}
+
+.pp {
+    float: right;
+}
