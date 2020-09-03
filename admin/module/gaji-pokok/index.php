@@ -26,18 +26,19 @@ $cek_gol = mysqli_num_rows($jum_gol);
 
 <!-- Main content -->
 <section class="content">
-    <a href="#" class="btn btn-info" data-target="#add-gaji" data-toggle="modal">Ubah PP</a>
-    <div class="modal fade" id="add-gaji" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <a href="#" class="btn btn-info" data-target="#ubah-pp" data-toggle="modal">Ubah PP</a>
+    <div class="modal fade" id="ubah-pp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Tambah Gaji</h4>
+                    <h4 class="modal-title">Ubah Peraturan Pemerintah</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
+                        <p>Berdasarkan </p>
                         <form method="POST" enctype="multipart/form-data" action="?module=gaji-pokok/function-proses&act=tambah">
                             <div class="row">
                                 <div class="col-xl-4">

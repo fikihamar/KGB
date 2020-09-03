@@ -42,7 +42,7 @@ $a = mysqli_fetch_array($admin);
 
                 <li class="nav-item has-treeview">
                     <a href="?module=pegawai/index" class="nav-link ">
-                        <i class="nav-icon fas fa-copy"></i>
+                        <i class="nav-icon fas fa-database"></i>
                         <p>
                             Data Pegawai
                         </p>
@@ -50,7 +50,7 @@ $a = mysqli_fetch_array($admin);
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-stethoscope"></i>
+                        <i class="nav-icon fas fa-handshake"></i>
                         <p>
                             Promosi Pangkat
                             <i class="fas fa-angle-left right"></i>
@@ -74,7 +74,7 @@ $a = mysqli_fetch_array($admin);
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-stethoscope"></i>
+                        <i class="nav-icon fas fa-credit-card"></i>
                         <p>
                             Kenaikan Gaji Berkala
                             <i class="fas fa-angle-left right"></i>
@@ -98,7 +98,7 @@ $a = mysqli_fetch_array($admin);
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="?module=gaji-pokok/index&act=tampil&golongan=I" class="nav-link ">
-                        <i class="nav-icon fas fa-copy"></i>
+                        <i class="nav-icon fas fa-money-bill-wave"></i>
                         <p>
                             Gaji Pokok
                         </p>
@@ -106,7 +106,7 @@ $a = mysqli_fetch_array($admin);
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="?module=arsip-kgb/index" class="nav-link ">
-                        <i class="nav-icon fas fa-copy"></i>
+                        <i class="nav-icon fas fa-file-alt"></i>
                         <p>
                             Arsip KGB
                         </p>
@@ -114,7 +114,7 @@ $a = mysqli_fetch_array($admin);
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="?module=instansi/index" class="nav-link ">
-                        <i class="nav-icon fas fa-copy"></i>
+                        <i class="nav-icon fas fa-landmark"></i>
                         <p>
                             Instansi
                         </p>
@@ -122,9 +122,17 @@ $a = mysqli_fetch_array($admin);
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="?module=user/index" class="nav-link ">
-                        <i class="nav-icon fas fa-copy"></i>
+                        <i class="nav-icon fas fa-user-cog"></i>
                         <p>
                             Admin
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="?module=about/index" class="nav-link ">
+                        <i class="nav-icon fas fa-info"></i>
+                        <p>
+                            About This Web
                         </p>
                     </a>
                 </li>

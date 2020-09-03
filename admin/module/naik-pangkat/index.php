@@ -128,30 +128,18 @@
                                                     <div class="container-fluid">
                                                         <div class="col-md-12">
                                                             <p>Sebelum anda melakukan update pangkat pegawai harap di cek kembali hal-hal berikut;</p>
-                                                            <h5 class="m-0 text-center">PERATURAN PEMERINTAH REPUBLIK INDONESIA <br>NOMOR 99 TAHUN 2000</h5>
-                                                            <br>
-                                                            <h6 class="m-0 text-center">Bagian Ketiga <br> Kenaikan Pangkat Reguler <br><br> Pasal 6</h6>
-                                                            <br>
-                                                            <div class="row">
-                                                                <div class="col-md-1"><b>(1)</b></div>
-                                                                <div class="col-11">Kenaikan pangkat reguler diberikan kepada Pegawai Negeri Sipil yang :</div>
-                                                            </div>
-                                                            <div class="row m-4">
-                                                                <div class="col-1"><b>2.</b></div>
-                                                                <div class="col-11">melaksanakan tugas belajar dan sebelumnya tidak menduduki jabatan struktural atau jabatan fungsional tertentu; dan</div>
-                                                            </div>
-                                                            <div class="m-2"><br></div>
-                                                            &ensp;&ensp;&ensp;&ensp;<b>1.&ensp;</b>tidak menduduki jabatan struktural atau jabatan fungsional tertentu;<br>
-                                                            &ensp;&ensp;&ensp;&ensp;<b>2.&ensp;</b>melaksanakan tugas belajar dan sebelumnya tidak menduduki jabatan struktural atau jabatan fungsional tertentu; dan<br>
-                                                            &ensp;&ensp;&ensp;&ensp;<b>3.&ensp;</b>dipekerjakan atau diperbantukan secara penuh di luar instansi induk dan tidak menduduki jabatan struktural atau jabatan fungsional tertentu.<br>
-                                                            <b>3.&ensp;</b>Jika sudah dapat di pastikan benar maka silahkan <b>Download</b> file<br>
-                                                            <b>4.&ensp;</b>Kemudian <b>Upload</b> Hasil <b>Download</b> File KGB</span><br>
-                                                            <span><b>5.&ensp;</b>Jika Anda Tidak <b>Upload</b> File KGB maka untuk KGB berikutnya akan terjadi kesalahan</span>
+                                                            <ol>
+                                                                <li>tidak menduduki jabatan struktural atau jabatan fungsional tertentu;</li>
+                                                                <li>melaksanakan tugas belajar dan sebelumnya tidak menduduki jabatan struktural atau jabatan fungsional tertentu;</li>
+                                                                <li>dipekerjakan atau diperbantukan secara penuh di luar instansi induk dan tidak menduduki jabatan struktural atau jabatan fungsional tertentu.</li>
+                                                                <li>Kenaikan pangkat sebagaimana dimaksud dalam ayat <b>(1)</b> diberikan sepanjang tidak melampaui pangkat atasan langsungnya.</li>
+                                                                <li>sekurang-kurangnya telah 4 (empat) tahun dalam pangkat terakhir;</li>
+                                                                <li>setiap unsur penilaian prestasi kerja sekurang-kurangnya bernilai baik dalam 2 (dua) tahun terakhir.</li>
+                                                            </ol>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <a type="submit" href="?module=kgb/upload&nip=<?php echo $row1['nip']; ?>" class="btn btn-info"><span class="glyphicon glyphicon-check"></span> Upload</a>
                                                     <a type="submit" target="_blank" href="?module=naik-pangkat/naik_pangkat&nip=<?php echo $row1['nip']; ?>" class="btn btn-success"><span class="glyphicon glyphicon-check"></span>Update</a>
                                                 </div>
                                                 </form>

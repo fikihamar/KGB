@@ -15,7 +15,28 @@
 </div>
 <?php
 include '../config/connection.php.';
-$data1 = update_kgb($con, 'Y-12-31');
+$data2 = naikPangkat($con, 'Y-12-31');
+                    $nip1 = [];
+                    while ($row2 = mysqli_fetch_array($data2)) {
+                        $date = kenaikanSelanjutnya($row2['tgl_pangkat_terakhir'], $row2['periode_kenaikan'], $row2['percepatan_kenaikan'], $row2['penundaan_kenaikan']);
+                        if (strtotime($date) <= time()) {
+                            $pendidikan = $row2['pendidikan'];
+                            $id_gol = $row2['id_golongan'];
+                            if (($pendidikan == "SMA/SMK") || ($pendidikan == "D1") || ($pendidikan == "D2") && $id_gol == ("III.b")) {
+                            } elseif (($pendidikan == "D3") && $id_gol == ("III.c")) {
+                            } elseif (($pendidikan == "S1") && $id_gol == ("III.d")) {
+                            } elseif (($pendidikan == "S2") && $id_gol == ("IV.a")) {
+                            } elseif (($pendidikan == "S3") && $id_gol == ("IV.b")) {
+                            } else {
+                                array_push($nip1, $row2['nip']);
+                            }
+                        }
+                    }
+                    $angka2 = count($nip1);
+                    if ($angka2>0) {
+                        echo "<h6><span class='badge badge-pill badge-warning'>Silahkan Update Pangkat Pegawai Terlebih Dahulu</span></h6>";
+                    }else{
+$data1= update_kgb($con, 'Y-12-31');
 $nip = [];
 while ($row2 = mysqli_fetch_array($data1)) {
     $date = kenaikanSelanjutnya($row2['tgl_kgb_terakhir'], $row2['periode_kgb'], $row2['percepatan_kgb'], $row2['penundaan_kgb']);
@@ -53,24 +74,11 @@ $angka = count($nip);
                     } else { ?>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="alert alert-success alert-dismissable">
-                                    <span style="text-align: center">
-                                        <p>Apabila Ada Pegawai Yang Mengalami <b>Percepatan</b> Kenaikan Gaji Berkala Silahkan Klik <a href="?module=kgb/penundaan">Disini</a> </p>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
                                 <div class="alert alert-danger alert-dismissable">
                                     <span style="text-align:center">
-                                        <p>Apabila Ada Pegawai Yang Mengalami <b>Penundaan</b> Kenaikan Gaji Berkala Silahkan Klik <br><a href="?module=kgb/percepatan">Disini</a></p>
+                                        <p>Apabila Ada Pegawai Yang Mengalami <b>Penundaan</b> Kenaikan Gaji Berkala Silahkan Klik <a href="?module=kgb/percepatan">Disini</a></p>
                                     </span>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <select name="waktu" class="form-control" id="" onchange="tampil_kgb(this.value)">
-                                    <option value="<?= date('Y-12-31') ?>">Tahun Ini</option>
-                                    <option value="<?= date('Y-m-31') ?>">Bulan Ini</option>
-                                </select>
                             </div>
                         </div>
                         <p>Berikut ini adalah daftar pegawai yang harus di update kenaikan gaji berkala sampai dengan tahun ini</p>
@@ -226,3 +234,4 @@ $angka = count($nip);
         </div>
     </div>
 </section>
+                    <?php }?>

@@ -22,7 +22,8 @@ INNER JOIN instansi ON pegawai.kd_instansi=instansi.id_instansi WHERE pegawai.ni
     </div><!-- /.container-fluid -->
 </div>
 <section class="content">
-    <div class="row">
+    <a class="btn btn-info " href="?module=pegawai/index">Kembali</a>
+    <div class="row mt-4">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">

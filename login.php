@@ -89,13 +89,6 @@ if (isset($_GET['pesan'])) {
                                 <div class="form-group">
                                     <button name="login" class="btn btn-primary submit-btn btn-block">Login</button>
                                 </div>
-                                <div class="form-group d-flex justify-content-between">
-                                    <!-- <div class="form-check form-check-flat mt-0">
-                                        <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" checked> Keep me signed in </label>
-                                    </div> -->
-                                    <a href="#" class="text-small forgot-password text-black">Forgot Password</a>
-                                </div>
                                 <?php if (isset($error)) {
                                     echo "<div class='form-group'>
                                     <div style='text-align:center;' class='alert alert-info'><p >$error</p></div>
@@ -103,16 +96,17 @@ if (isset($_GET['pesan'])) {
                                 } ?>
                             </form>
                         </div>
-                        <div style="height: 10px"></div>
-                        <p class="footer-text text-center">copyright © <?php $text = 2020;
-                                                                        if ($text == date('Y')) {
-                                                                            echo 2020;
-                                                                        } else {
-                                                                            echo 2020 . '-' . date('Y');
-                                                                        } ?> e-kgb. All rights reserved.</p>
+                        <p class="footer-text text-center mb-0">copyright © <?php $text = 2020;
+                                                                            if ($text == date('Y')) {
+                                                                                echo 2020;
+                                                                            } else {
+                                                                                echo 2020 . '-' . date('Y');
+                                                                            } ?> e-kgb. All rights reserved.</p>
                     </div>
                 </div>
             </div>
+
+
             <!-- content-wrapper ends -->
         </div>
         <!-- page-body-wrapper ends -->

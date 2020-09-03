@@ -23,7 +23,7 @@ $data = mysqli_query($con, "SELECT * FROM instansi left JOIN pegawai ON instansi
 <?php while ($a = mysqli_fetch_array($data)) {
 ?>
     <section class="content">
-        <a class="btn btn-info btn-xs" href="#edit-instansi<?= $a['id_instansi'] ?>" data-toggle="modal"><i class="fa fa-edit"></i>Edit Instansi</a>
+        <a class="btn btn-info " href="#edit-instansi<?= $a['id_instansi'] ?>" data-toggle="modal"><i class="fa fa-edit"></i> Edit Instansi</a>
         <div class="modal fade bd-example-modal-lg" id="edit-instansi<?= $a['id_instansi'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-lg">
                 <div class="modal-content">
