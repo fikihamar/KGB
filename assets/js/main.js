@@ -1,128 +1,87 @@
-$(document).ready(function () {
-    var id_dokter;
 
-    DisplayData();
+(function ($) {
+    "use strict";
 
-    $('#update').hide();
 
-    $('#save').on('click', function () {
-        if ($('#nama').val() == "" || $('#usia').val() == "" || $('#spealisasi').val() == "" || $('#alamat').val() == "") {
-            alert("Hello World");
-        } else {
-            var nama = $('#nama').val();
-            var usia = $('#usia').val();
-            var spealisasi = $('#spealisasi').val();
-            var alamat = $('#alamat').val();
-            $.ajax({
-                url: 'config/config-save.php',
-                type: 'POST',
-                data: {
-                    firstname: firstname,
-                    lastname: lastname,
-                    address: address
-                },
-                success: function (data) {
-                    $('#nama').val('');
-                    $('#usia').val('');
-                    $('#spealisasi').val('');
-                    $('#alamat').val('');
-                    DisplayData();
-                }
-            });
+    /*==================================================================
+    [ Focus input ]*/
+    $('.input100').each(function(){
+        $(this).on('blur', function(){
+            if($(this).val().trim() != "") {
+                $(this).addClass('has-val');
+            }
+            else {
+                $(this).removeClass('has-val');
+            }
+        })    
+    })
+  
+  
+    /*==================================================================
+    [ Validate ]*/
+    var input = $('.validate-input .input100');
+
+    $('.validate-form').on('submit',function(){
+        var check = true;
+
+        for(var i=0; i<input.length; i++) {
+            if(validate(input[i]) == false){
+                showValidate(input[i]);
+                check=false;
+            }
         }
 
+        return check;
     });
 
-    function DisplayData() {
-        $.ajax({
-            url: 'config/config-tampil.php',
-            type: 'POST',
-            data: {
-                res: 1
-            },
-            success: function (response) {
-                $('#data').html(response);
+
+    $('.validate-form .input100').each(function(){
+        $(this).focus(function(){
+           hideValidate(this);
+        });
+    });
+
+    function validate (input) {
+        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+                return false;
             }
-        })
+        }
+        else {
+            if($(input).val().trim() == ''){
+                return false;
+            }
+        }
     }
 
-    $(document).on('click', '.delete', function () {
-        var id = $(this).attr('name');
+    function showValidate(input) {
+        var thisAlert = $(input).parent();
 
-        $.ajax({
-            url: 'config/config-delete.php',
-            type: 'POST',
-            data: {
-                id: id
-            },
-            success: function (data) {
-                DisplayData();
-                $('#update').hide();
-                $('#save').show();
-                $('#nama').val('');
-                $('#usia').val('');
-                $('#spealisasi').val('');
-                $('#alamat').val('');
-            }
-        });
-    })
+        $(thisAlert).addClass('alert-validate');
+    }
 
-    $(document).on('click', '.edit', function () {
-        var id = $(this).attr('name');
+    function hideValidate(input) {
+        var thisAlert = $(input).parent();
 
-        $.ajax({
-            url: 'config/config-edit.php',
-            type: 'POST',
-            data: {
-                id: id
-            },
-            success: function (response) {
-                var getArray = jQuery.parseJSON(response);
-
-                id_dokter = getArray.id_dokter;
-
-                $('#nama').val(getArray.nama);
-                $('#usia').val(getArray.usia);
-                $('#spealisasi').val(getArray.spealisasi);
-                $('#alamat').val(getArray.alamat);
-
-                $('#update').show();
-                $('#save').hide();
-            }
-        })
+        $(thisAlert).removeClass('alert-validate');
+    }
+    
+    /*==================================================================
+    [ Show pass ]*/
+    var showPass = 0;
+    $('.btn-show-pass').on('click', function(){
+        if(showPass == 0) {
+            $(this).next('input').attr('type','text');
+            $(this).addClass('active');
+            showPass = 1;
+        }
+        else {
+            $(this).next('input').attr('type','password');
+            $(this).removeClass('active');
+            showPass = 0;
+        }
+        
     });
 
-    $('#update').on('click', function () {
-        var nama = $('#nama').val();
-        var usia = $('#usia').val();
-        var spealisasi = $('#spealisasi').val();
-        var alamat = $('#alamat').val();
 
-
-        $.ajax({
-            url: 'config/config-update.php',
-            type: 'POST',
-            data: {
-                id_dokter: id_dokter,
-                nama: nama,
-                usia: usia,
-                spealisasi: spealisasi,
-                alamat: alamat
-            },
-            success: function () {
-                DisplayData();
-                $('#nama').val('');
-                $('#usia').val('');
-                $('#spealisasi').val('');
-                $('#alamat').val('');
-
-                alert("Successfully Updated!");
-
-                $('#update').hide();
-                $('#save').show();
-
-                id_dokter = "";
-            }
-        });
-    });
-});
+})(jQuery);

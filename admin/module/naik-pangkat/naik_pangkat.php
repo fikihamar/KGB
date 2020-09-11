@@ -129,7 +129,7 @@ switch ($pendidikan) {
                 break;
         }
         break;
-    case 'S1':
+    case 'S2':
         switch ($id) {
             case "I.a":
                 $gol = "I.b";
@@ -168,6 +168,51 @@ switch ($pendidikan) {
                 break;
             default:
                 $gol = "IV.a";
+                break;
+        }
+        break;
+    case 'S3':
+        switch ($id) {
+            case "I.a":
+                $gol = "I.b";
+                break;
+            case "I.b":
+                $gol = "I.c";
+                break;
+            case "I.c":
+                $gol = "I.d";
+                break;
+            case "I.d":
+                $gol = "II.a";
+                $pengurangan = 6;
+                break;
+            case "II.a":
+                $gol = "II.b";
+                break;
+            case "II.b":
+                $gol = "II.c";
+                break;
+            case "II.c":
+                $gol = "II.d";
+                $pengurangan = 5;
+                break;
+            case "II.d":
+                $gol = "III.a";
+                break;
+            case "III.a":
+                $gol = "III.b";
+                break;
+            case "III.b":
+                $gol = "III.c";
+                break;
+            case "III.c":
+                $gol = "III.d";
+                break;
+            case "III.d":
+                $gol = "IV.a";
+                break;
+            default:
+                $gol = "IV.b";
                 break;
         }
         break;

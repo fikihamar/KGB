@@ -34,93 +34,70 @@ if (isset($_GET['pesan'])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>E-KGB | Log in</title>
+    <link rel="icon" type="image/png" href="assets/images/logo/damkar.png">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/vendor/iconfonts/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="assets/vendor/iconfonts/ionicons/css/ionicons.css">
-    <link rel="stylesheet" href="assets/vendor/iconfonts/typicons/src/font/typicons.css">
-    <link rel="stylesheet" href="assets/vendor/iconfonts/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="assets/vendor/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="assets/vendor/css/vendor.bundle.addons.css">
-    <link rel="icon" type="image/png" href="assets/images/logo/damkar.png">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="assets/vendor/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- icheck bootstrap -->
+    <!-- Iconic icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     <!-- <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css"> -->
     <!-- Theme style -->
-    <!-- <link rel="stylesheet" href="assets/css/adminlte.min.css"> -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/util.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container-scroller">
-        <div class="container-fluid page-body-wrapper full-page-wrapper">
-            <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
-                <div class="row w-100">
-                    <div class="col-lg-4 mx-auto">
-                        <div class="auto-form-wrapper">
-                            <form action="" method="post">
-                                <div class="form-group">
-                                    <label class="label"><b>Username</b></label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="username" placeholder="Username">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">
-                                                <i class="mdi mdi-check-circle-outline"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="label"><b>Password</b></label>
-                                    <div class="input-group">
-                                        <input type="password" class="form-control" name="password" placeholder="*********">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">
-                                                <i class="mdi mdi-check-circle-outline"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <button name="login" class="btn btn-primary submit-btn btn-block">Login</button>
-                                </div>
-                                <?php if (isset($error)) {
-                                    echo "<div class='form-group'>
-                                    <div style='text-align:center;' class='alert alert-info'><p >$error</p></div>
-                                </div>";
-                                } ?>
-                            </form>
-                        </div>
-                        <p class="footer-text text-center mb-0">copyright © <?php $text = 2020;
-                                                                            if ($text == date('Y')) {
-                                                                                echo 2020;
-                                                                            } else {
-                                                                                echo 2020 . '-' . date('Y');
-                                                                            } ?> e-kgb. All rights reserved.</p>
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('assets/images/background_login.jpg');">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form" method="post" action="">
+                    <span style="color: #fff;display:block;" class="text-center fs-15 m-b-34">Selamat Datang Di Aplikasi Kenaikan Gaji Bekala Dinas Pemadam Kabupaten Bogor</span>
+                    <span class="login100-form-logo m-t-100">
+                        <img src="assets/images/logo/damkar.png" alt="" srcset="">
+                    </span>
+
+                    <span class="login100-form-title p-b-34 p-t-27">
+                        Login
+                    </span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter username">
+                        <input class="input100" type="text" name="username" placeholder="Username">
+                        <span class="focus-input100" data-placeholder="&#xf207;"></span>
                     </div>
-                </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+                        <input class="input100" type="password" name="password" placeholder="Password">
+                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" name="login">
+                            Login
+                        </button>
+                    </div>
+                    <div style="color: #fff;" class="text-center mt-4 pt-9"> <span class="badge badge-custom"><?php
+                                                                                                                if (isset($error)) {
+                                                                                                                    echo $error;
+                                                                                                                } ?></span></div>
+                </form>
+
             </div>
 
-
-            <!-- content-wrapper ends -->
         </div>
-        <!-- page-body-wrapper ends -->
+        <p class="text-center mb-0">copyright © <?php $text = 2020;
+                                                if ($text == date('Y')) {
+                                                    echo 2020;
+                                                } else {
+                                                    echo 2020 . '-' . date('Y');
+                                                } ?> e-kgb. All rights reserved.</p>
     </div>
-    <!-- page-body-wrapper ends -->
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="assets/vendor/js/vendor.bundle.base.js"></script>
-    <script src="assets/vendor/js/vendor.bundle.addons.js"></script>
-    <!-- endinject -->
-    <!-- inject:js -->
-    <script src="assets/js/shared/off-canvas.js"></script>
-    <script src="assets/js/shared/misc.js"></script>
-    <!-- endinject -->
+
 </body>
+<script src="assets/js/jquery-3.4.1.min.js"></script>
 
 </html>

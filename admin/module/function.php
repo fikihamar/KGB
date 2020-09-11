@@ -71,8 +71,8 @@ function update_kgb($con)
 {
     $data = mysqli_query($con, "SELECT * FROM kgb_terakhir");
     while ($d = mysqli_fetch_array($data)) {
-        $now = date('Y-m-d');
-        $h = date('Y-m-d', strtotime('-30 years ', strtotime($now)));
+        $now = date('Y-12-31');
+        $h = date('Y-m-d', strtotime('-999 years -12 months -30 days', strtotime($now)));
         $j = date('Y-12-31');
     }
     return  mysqli_query($con, "SELECT * FROM pegawai JOIN kgb_terakhir ON pegawai.nip=kgb_terakhir.nip WHERE 
