@@ -65,7 +65,7 @@
                             <label>Masa Kerja Golongan</label>
                             <div class="row">
                                 <div class="col-md-6"> <input required type="number" name="mkg_pangkat_tahun" class="form-control" placeholder="Tahun"></div>
-                                <div class="col-md-6"><input required type="text" name="mkg_pangkat_bulan" class="form-control" placeholder="Bulan"></div>
+                                <div class="col-md-6"><input required type="number" name="mkg_pangkat_bulan" class="form-control" placeholder="Bulan"></div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -111,7 +111,7 @@
                             <label>Berdasarkan Masa Kerja Golongan</label>
                             <div class="row">
                                 <div class="col-md-6"> <input required type="number" name="mkg_kgb_tahun" class="form-control" placeholder="Tahun"></div>
-                                <div class="col-md-6"><input required type="text" name="mkg_kgb_bulan" class="form-control" placeholder="Bulan"></div>
+                                <div class="col-md-6"><input required type="number" name="mkg_kgb_bulan" class="form-control" placeholder="Bulan"></div>
                             </div>
                         </div>
                         <div class="form-group">

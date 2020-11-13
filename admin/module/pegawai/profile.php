@@ -2,8 +2,8 @@
 include "../config/connection.php";
 $nip = $_GET['nip'];
 $data = mysqli_query($con, "SELECT * FROM pegawai left JOIN golongan ON pegawai.id_golongan=golongan.id_golongan
-INNER JOIN pangkat_terakhir ON pegawai.nip=pangkat_terakhir.nip INNER JOIN kgb_terakhir ON pegawai.nip=kgb_terakhir.nip 
-INNER JOIN instansi ON pegawai.kd_instansi=instansi.id_instansi WHERE pegawai.nip='$nip'");
+left JOIN pangkat_terakhir ON pegawai.nip=pangkat_terakhir.nip LEFT JOIN kgb_terakhir ON pegawai.nip=kgb_terakhir.nip 
+LEFT JOIN instansi ON pegawai.kd_instansi=instansi.id_instansi WHERE pegawai.nip='$nip'");
 
 ?>
 <div class="content-header">

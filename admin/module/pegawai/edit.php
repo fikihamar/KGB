@@ -21,6 +21,7 @@
                                     <label style="position:relative; top:7px;">NIP</label>
                                 </div>
                                 <div class="col-xl-8">
+                                    <input type="hidden" name="nip_lama" value="<?=$b['nip']?>">
                                     <input type="text" name="nip" class="form-control" value="<?php echo $b['nip']; ?>" required>
                                 </div>
                             </div>

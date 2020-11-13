@@ -203,25 +203,25 @@ $cek_gol = mysqli_num_rows($jum_gol);
                                                     <?php
                                                     $gaji = mysqli_query($con, "SELECT DISTINCT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='I.a'");
                                                     $a = mysqli_fetch_array($gaji);
-                                                    if ($a['gaji'] != "") {
+                                                    if (isset($a['gaji'])) {
                                                         echo "<td>{$a['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
                                                     }
-                                                    $b = mysqli_fetch_array(mysqli_query($con, "SELECT  DISTINCT  gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='I.b'"));
-                                                    if ($b['gaji'] != "") {
+                                                    $b = mysqli_fetch_array(mysqli_query($con, "SELECT  DISTINCT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='I.b'"));
+                                                    if (isset($b['gaji'])) {
                                                         echo "<td>{$b['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
                                                     }
                                                     $c = mysqli_fetch_array(mysqli_query($con, "SELECT  DISTINCT  gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='I.c'"));
-                                                    if ($c['gaji'] != "") {
+                                                    if (isset($c['gaji'])) {
                                                         echo "<td>{$c['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
                                                     }
                                                     $f = mysqli_fetch_array(mysqli_query($con, "SELECT DISTINCT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='I.d'"));
-                                                    if ($f['gaji'] != "") {
+                                                    if (isset($f['gaji'])) {
                                                         echo "<td>{$f['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
@@ -400,25 +400,25 @@ $cek_gol = mysqli_num_rows($jum_gol);
                                                     <td><?= $d['mkg'] ?></td>
                                                     <?php
                                                     $g = mysqli_fetch_array(mysqli_query($con, "SELECT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='II.a'"));
-                                                    if ($g['gaji'] != "") {
+                                                    if (isset($g['gaji'])) {
                                                         echo "<td>{$g['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
                                                     }
                                                     $h = mysqli_fetch_array(mysqli_query($con, "SELECT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='II.b'"));
-                                                    if ($h['gaji'] != "") {
+                                                    if (isset($h['gaji'])) {
                                                         echo "<td>{$h['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
                                                     }
                                                     $i = mysqli_fetch_array(mysqli_query($con, "SELECT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='II.c'"));
-                                                    if ($i['gaji'] != "") {
+                                                    if (isset($i['gaji'])) {
                                                         echo "<td>{$i['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
                                                     }
                                                     $j = mysqli_fetch_array(mysqli_query($con, "SELECT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='II.d'"));
-                                                    if ($j['gaji'] != "") {
+                                                    if (isset($j['gaji'])) {
                                                         echo "<td>{$j['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
@@ -597,25 +597,25 @@ $cek_gol = mysqli_num_rows($jum_gol);
                                                     <td><?= $d['mkg'] ?></td>
                                                     <?php
                                                     $g = mysqli_fetch_array(mysqli_query($con, "SELECT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='III.a'"));
-                                                    if ($g['gaji'] != "") {
+                                                    if (isset($g['gaji'])) {
                                                         echo "<td>{$g['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
                                                     }
                                                     $h = mysqli_fetch_array(mysqli_query($con, "SELECT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='III.b'"));
-                                                    if ($h['gaji'] != "") {
+                                                    if (isset($h['gaji'])) {
                                                         echo "<td>{$h['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
                                                     }
                                                     $i = mysqli_fetch_array(mysqli_query($con, "SELECT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='III.c'"));
-                                                    if ($i['gaji'] != "") {
+                                                    if (isset($i['gaji'])) {
                                                         echo "<td>{$i['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
                                                     }
                                                     $j = mysqli_fetch_array(mysqli_query($con, "SELECT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='III.d'"));
-                                                    if ($j['gaji'] != "") {
+                                                    if (isset($j['gaji'])) {
                                                         echo "<td>{$j['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
@@ -795,31 +795,31 @@ $cek_gol = mysqli_num_rows($jum_gol);
                                                     <td><?= $d['mkg'] ?></td>
                                                     <?php
                                                     $g = mysqli_fetch_array(mysqli_query($con, "SELECT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='IV.a'"));
-                                                    if ($g['gaji'] != "") {
+                                                    if (isset($g['gaji'])) {
                                                         echo "<td>{$g['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
                                                     }
                                                     $h = mysqli_fetch_array(mysqli_query($con, "SELECT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='IV.b'"));
-                                                    if ($h['gaji'] != "") {
+                                                    if (isset($h['gaji'])) {
                                                         echo "<td>{$h['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
                                                     }
                                                     $i = mysqli_fetch_array(mysqli_query($con, "SELECT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='IV.c'"));
-                                                    if ($i['gaji'] != "") {
+                                                    if (isset($i['gaji'])) {
                                                         echo "<td>{$i['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
                                                     }
                                                     $j = mysqli_fetch_array(mysqli_query($con, "SELECT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='IV.d'"));
-                                                    if ($j['gaji'] != "") {
+                                                    if (isset($j['gaji'])) {
                                                         echo "<td>{$j['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";
                                                     }
                                                     $k = mysqli_fetch_array(mysqli_query($con, "SELECT gaji FROM gaji_pokok WHERE mkg='{$d['mkg']}' AND id_golongan='IV.e'"));
-                                                    if ($k['gaji'] != "") {
+                                                    if (isset($k['gaji'])) {
                                                         echo "<td>{$k['gaji']}</td>";
                                                     } else {
                                                         echo "<td></td>";

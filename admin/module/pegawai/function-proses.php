@@ -2,7 +2,7 @@
 include "../config/connection.php";
 
 if ($_GET['act'] == 'update_pegawai') {
-    $nip = $_GET['nip'];
+    $nip = $_POST['nip_lama'];
     $data = mysqli_query($con, "SELECT * FROM pegawai INNER JOIN golongan ON pegawai.id_golongan=golongan.id_golongan
 INNER JOIN pangkat_terakhir ON pegawai.nip=pangkat_terakhir.nip INNER JOIN kgb_terakhir ON pegawai.nip=kgb_terakhir.nip 
 INNER JOIN instansi ON pegawai.kd_instansi=instansi.id_instansi WHERE pegawai.nip='$nip'");
@@ -159,7 +159,7 @@ INNER JOIN instansi ON pegawai.kd_instansi=instansi.id_instansi WHERE pegawai.ni
     $delete2 = mysqli_query($con, "DELETE FROM pangkat_terakhir WHERE nip='$nip'");
     $delete3 = mysqli_query($con, "DELETE FROM kgb_terakhir WHERE nip='$nip'");
     if ($delete1 && $delete2 && $delete3) {
-        echo "<script>alert('Delete Succes');window.location.href = '?module=pegawai/index'</script>";
+        echo "<script>alert('Delete Success');window.location.href = '?module=pegawai/index'</script>";
     } else {
         echo "<script>alert('Delete Gagal');window.location.href = '?module=pegawai/index'</script>";
     }
@@ -200,7 +200,6 @@ INNER JOIN instansi ON pegawai.kd_instansi=instansi.id_instansi WHERE pegawai.ni
     }
     $ukuran_file = $_FILES['file_sk']['size'];
     if ($ukuran_file <= 1000000) {
-        $nama_file = $_FILES['file_sk']['name'];
         $format = pathinfo($nama_file, PATHINFO_EXTENSION); // Mendapatkan format file
         // Validasi format
         if ($format == "pdf") {
@@ -212,13 +211,23 @@ INNER JOIN instansi ON pegawai.kd_instansi=instansi.id_instansi WHERE pegawai.ni
             $file_tujuan = "../assets/file-arsip/" . $file_upload;
             $upload = move_uploaded_file($file_asal, $file_tujuan);
             if ($upload == true) {
-                $query_kgb = mysqli_query($con, "INSERT INTO kgb_terakhir VALUES ('','$no_surat','$nip','$golongan_kgb','$tmt_kgb','$tgl_surat','','$periode_kgb','','$mkg_kgb_tahun',
-                '$mkg_kgb_bulan','$gapok','$pp','$file_upload')");
-                $query_pangkat = mysqli_query($con, "INSERT INTO pangkat_terakhir VALUES ('','$nip','$tmt_pangkat','','$periode_pangkat','','$mkg_pangkat_tahun','$mkg_pangkat_bulan')");
                 $query_pegawai = mysqli_query($con, "INSERT INTO pegawai VALUES ('$nip','$nama','$golongan_pangkat','$kd_instansi','$pendidikan','$ket_pendidikan')");
-                if ($query_kgb && $query_pangkat && $query_pegawai) {
-                    echo "<script>alert('Sukses Menambahkan Pegawai');window.location.href = '?module=pegawai/index'</script>";
-                } else {
+                if ($query_pegawai) {
+                    $query_pangkat = mysqli_query($con, "INSERT INTO pangkat_terakhir VALUES ('','$nip','$tmt_pangkat','','$periode_pangkat','','$mkg_pangkat_tahun','$mkg_pangkat_bulan')");
+                    if ($query_pangkat) {
+                        $query_kgb = mysqli_query($con, "INSERT INTO kgb_terakhir
+                         VALUES ('','$no_surat','$nip','$golongan_kgb','$tmt_kgb','$tgl_surat','','$periode_kgb','','$mkg_kgb_tahun',
+                '$mkg_kgb_bulan','$gapok','$pp','$file_upload')");  
+                        if ($query_kgb) {
+                            echo "<script>alert('Sukses Menambahkan Pegawai');window.location.href = '?module=pegawai/index'</script>";
+                        }else{
+                            echo "<script>alert('Gagal Menambahkan Pegawai kgb');window.location.href = '?module=pegawai/index'</script>";
+                        }
+                    }else{
+                        echo "<script>alert('Gagal Menambahkan Pegawai pangkat');window.location.href = '?module=pegawai/index'</script>";
+                    }
+                    
+                }  else {
                     echo "<script>alert('Gagal Menambahkan Pegawai');window.location.href = '?module=pegawai/index'</script>";
                 }
             } else {

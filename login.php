@@ -38,66 +38,94 @@ if (isset($_GET['pesan'])) {
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="assets/vendor/fontawesome-free/css/all.min.css">
-    <!-- Iconic icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-    <!-- <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css"> -->
+     <!-- General CSS Files -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+ <!-- <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css"> -->
     <!-- Theme style -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/util.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/stisla/style.css">
+  <link rel="stylesheet" href="assets/stisla/components.css">
     <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
 <body>
-    <div class="limiter">
-        <div class="container-login100" style="background-image: url('assets/images/background_login.jpg');">
-            <div class="wrap-login100">
-                <form class="login100-form validate-form" method="post" action="">
-                    <span style="color: #fff;display:block;" class="text-center fs-15 m-b-34">Selamat Datang Di Aplikasi Kenaikan Gaji Bekala Dinas Pemadam Kabupaten Bogor</span>
-                    <span class="login100-form-logo m-t-100">
-                        <img src="assets/images/logo/damkar.png" alt="" srcset="">
-                    </span>
+<div id="app">
+    <section class="section">
+      <div class="d-flex flex-wrap align-items-stretch">
+        <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
+          <div class="p-4 m-3">
+             <h4 class="text-dark font-weight-normal">Selamat Datang di <span class="font-weight-bold">E-KGB</span></h4>
+            <p class="text-muted"><span class="font-weight-bold">E-KGB</span> adalah sistem aplikasi untuk mengatur Kenaikan Gaji Berkala dan Kenaikan Pangkat Reguler Secara mudah dan teratur</p>
+            <form method="POST"  class="needs-validation" novalidate="">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" type="text" class="form-control" name="username" tabindex="1" required autofocus>
+                <div class="invalid-feedback">
+                  Harap isi username anda
+                </div>
+              </div>
 
-                    <span class="login100-form-title p-b-34 p-t-27">
-                        Login
-                    </span>
+              <div class="form-group">
+                <div class="d-block">
+                  <label for="password" class="control-label">Password</label>
+                </div>
+                <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                <div class="invalid-feedback">
+                  Harap isi password anda
+                </div>
+              </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter username">
-                        <input class="input100" type="text" name="username" placeholder="Username">
-                        <span class="focus-input100" data-placeholder="&#xf207;"></span>
-                    </div>
+              <div class="form-group text-right">
+                <input type="submit" name="login" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4" value="Login">
+              </div>
+              <?php if (isset($error)) { ?>
+              <div class="form-group text-center">
+                  <div class="alert alert-primary eror-login">
+                      <span><?=$error?></span>
+                  </div>
+              </div>
+<?php } ?>
+            </form>
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter password">
-                        <input class="input100" type="password" name="password" placeholder="Password">
-                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                    </div>
-
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn" name="login">
-                            Login
-                        </button>
-                    </div>
-                    <div style="color: #fff;" class="text-center mt-4 pt-9"> <span class="badge badge-custom"><?php
-                                                                                                                if (isset($error)) {
-                                                                                                                    echo $error;
-                                                                                                                } ?></span></div>
-                </form>
-
+            <div class="text-center mt-5 text-small">
+              Copyright &copy; 2020 Develop by SMKN 1 Cibinong
             </div>
-
+          </div>
         </div>
-        <p class="text-center mb-0">copyright © <?php $text = 2020;
-                                                if ($text == date('Y')) {
-                                                    echo 2020;
-                                                } else {
-                                                    echo 2020 . '-' . date('Y');
-                                                } ?> e-kgb. All rights reserved.</p>
-    </div>
-
+        <div class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom" data-background="assets/images/alec-favale-b_cmaYs4eXM-unsplash.jpg">
+          <div class="absolute-bottom-left index-2">
+            <div class="text-light p-5 pb-2">
+              <div class="mb-5 pb-3">
+                <h1 class="mb-2 display-4 font-weight-bold">Hello Admin</h1>
+                <h5 class="font-weight-normal text-muted-transparent">Bogor, Indonesia</h5>
+              </div>
+              Photo by <a class="text-light bb" target="_blank" href="https://unsplash.com/photos/b_cmaYs4eXM">Alec Favale</a> on <a class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </body>
-<script src="assets/js/jquery-3.4.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+ <script>
+       $(document).ready(function(){
+    setTimeout(function() {
+        $(".eror-login").alert('close');
+    }, 3000);
+    });
+    $("[data-background]").each(function() {
+    var me = $(this);
+    me.css({
+      backgroundImage: 'url(' + me.data('background') + ')'
+    });
+  });
 
+  </script>
 </html>

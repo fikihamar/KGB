@@ -2,7 +2,7 @@
 include '../config/connection.php';
 //cek kenaikan pangkat
 $data1 = mysqli_query($con, "SELECT * FROM pegawai Left Join  golongan ON pegawai.id_golongan=golongan.id_golongan
- INNER JOIN pangkat_terakhir ON pegawai.nip=pangkat_terakhir.nip INNER JOIN instansi ON pegawai.kd_instansi=instansi.id_instansi ORDER BY pegawai.id_golongan DESC");
+ left JOIN pangkat_terakhir ON pegawai.nip=pangkat_terakhir.nip INNER JOIN instansi ON pegawai.kd_instansi=instansi.id_instansi ORDER BY pegawai.id_golongan DESC");
 ?>
 <html>
 <div class="content-header">
