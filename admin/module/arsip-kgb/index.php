@@ -116,7 +116,7 @@ include '../config/connection.php.';
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container-fluid">
-                                                        <form method="POST" enctype="multipart/form-data" action="?module=arsip-kgb/proses&act=delete-all&nip=<?= $row1['nip'] ?>">
+                                                        <form method="POST" enctype="multipart/form-data" action="delete.arsip?act=delete-all&nip=<?= $row1['nip'] ?>">
                                                             <div style="text-align: center">
                                                                 <span>Apakah Anda Yakin Ingin Menghapus Arsip Data Pegawai <b><?= $j['nama'] ?></b> ??</span>
                                                                 <br>

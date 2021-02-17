@@ -203,6 +203,7 @@ if ($_GET['act'] == 'upload') {
     while ($a = mysqli_fetch_array($data)) {
         $tahun_db = $a['kgb_tahun'];
         if ($tahun === $tahun_db) {
+
             $message = "<script>alert('Upload Gagal Karena File Sudah Ada pada tahun tersebut Silahkan Cek Kembali');window.location.href = '?module=arsip-kgb/detail-arsip&nip=$nip'</script>";
         }
     }
@@ -225,15 +226,7 @@ if ($_GET['act'] == 'upload') {
     } else {
         echo "<script>alert('UPLOAD ARSIP KGB GAGAL KARENA EKSTENSI FILE SK KGB YANG DI UPLOAD HARUS BERFORMAT PDF');window.location.href = '?module=arsip-kgb/detail-arsip&nip=$nip'</script>";
     }
-} elseif ($_GET['act'] == 'delete-all') {
-    $nip = $_GET['nip'];
-    $delete1 = mysqli_query($con, "DELETE FROM arsip_kgb WHERE nip='$nip'");
-    if ($delete1) {
-        echo "<script>alert('Delete Succes');window.location.href = '?module=arsip-kgb/index'</script>";
-    } else {
-        echo "<script>alert('Delete Gagal');window.location.href = '?module=arsip-kgb/index'</script>";
-    }
-} elseif ($_GET['act'] == "upload-data") {
+}  elseif ($_GET['act'] == "upload-data") {
     $nip = $_POST['nip'];
     $peg = mysqli_query($con, "SELECT nama FROM pegawai WHERE nip='$nip'");
     $z = mysqli_fetch_array($peg);

@@ -202,7 +202,7 @@ $a = mysqli_fetch_array($data);
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="container-fluid">
-                                                        <form method="POST" enctype="multipart/form-data" action="delete-arsip.php?tahun=<?= $row1['kgb_tahun'] ?>&nip=<?= $row1['nip'] ?>">
+                                                        <form method="POST" enctype="multipart/form-data" action="delete-arsip.php?act=delete-arsip-detail&tahun=<?= $row1['kgb_tahun'] ?>&nip=<?= $row1['nip'] ?>">
                                                             <span>Apakah Anda Yakin Ingin Menghapus File Arsip KGB tahun <b><?= $j['kgb_tahun'] ?></b> Pegawai <b><?= $j['nama'] ?></b>??</span>
                                                     </div>
                                                 </div>

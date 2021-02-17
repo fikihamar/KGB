@@ -20,3 +20,12 @@
 .pp {
     float: right;
 }
+
+.modal-pangkat ol li {
+    font-weight: bold;
+    padding-left: 0px;
+}
+
+.modal-pangkat ol li span {
+    font-weight: normal;
+}
